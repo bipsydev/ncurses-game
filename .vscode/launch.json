@@ -4,7 +4,7 @@
             "name": "gdb Debug Project",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/xterm",
+            "program": "/usr/bin/xterm",
             // CMD args here:
             "args": [
                 "-geometry", "80x24+470+220",
