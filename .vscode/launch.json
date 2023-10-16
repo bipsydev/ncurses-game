@@ -10,7 +10,7 @@
                 // XTERM arguments:
                 "-geometry", "80x24+470+220",
                 "-bg", "black",
-                "-fg", "white",
+                "-fg", "green",
                 "-e", "${workspaceFolder}/build/${workspaceFolderBasename}",
                 // PROGRAM arguments:
                 "name",
