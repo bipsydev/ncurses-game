@@ -1,25 +1,52 @@
+/**
+ * @file lilyutils.h
+ * @author bipsydev
+ * @brief Common C++ utility functions.
+ * @version 0.1
+ * @date Oct. 16th, 2023
+ */
+
 #pragma once
 #ifndef LCODE_LILYUTILS_H
 #define LCODE_LILYUTILS_H
 
-#include <iostream>
-#include <string>
-#include <vector>
-#include <cstddef>
+#include <iostream> // std::cout
+#include <string>   // std::string
+#include <vector>   // std::vector
+#include <cstddef>  // size_t
 
 namespace LCode
 {
 
+/**
+ * @brief Prints `length` amount of `bar` characters, and if `newline` is
+ *        true, also a newline at the end. @n
+ *        Default prints 80 underscores with newline. (should be the
+ *        length of the terminal winddow)
+ * 
+ * @param length  Number of characters to print.
+ * @param bar     The character to print.
+ * @param newline Whether or not to print a newline character at the end.
+ */
 inline void print_bar(size_t length = 80, char bar = '_', bool newline = true)
 {
     std::cout << std::string(length, bar) << (newline? "\n" : "");
 }
 
+
+/**
+ * @brief Represents the platform this program is compiled with.
+ */
 enum Platforms
 {
     LINUX, WINDOWS, MACOS
 };
 
+/**
+ * @brief Get which platform this program is compiled with.
+ * 
+ * @return either  `LINUX`, `WINDOWS`, or `MACOS`.
+ */
 inline Platforms get_platform()
 {
     #ifdef __linux__ || __unix__
@@ -31,6 +58,9 @@ inline Platforms get_platform()
     #endif
 }
 
+/**
+ * @return true if compiled on Windows (MSVC or MinGW), false otherwise.
+ */
 inline bool on_windows()
 {
     #ifdef _WIN32 || __MINGW32__
@@ -40,6 +70,9 @@ inline bool on_windows()
     #endif
 }
 
+/**
+ * @return true if compiled on Linux/Unix, false otherwise.
+ */
 inline bool on_linux()
 {
     #ifdef __linux__ || __unix__
@@ -49,6 +82,9 @@ inline bool on_linux()
     #endif
 }
 
+/**
+ * @return true if compiled on MacOS, false otherwise.
+ */
 inline bool on_macos()
 {
     #ifdef __APPLE__
@@ -60,7 +96,10 @@ inline bool on_macos()
 
 
 /**
- * @brief Returns a lowercase version of the string.
+ * @brief Returns a lowercase version of the string using `std::tolower`.
+ * 
+ * @param str a `std::string`.
+ * @return  `std::string` that is all lowercase.
  */
 inline std::string str_tolower(const std::string & str)
 {
@@ -73,6 +112,14 @@ inline std::string str_tolower(const std::string & str)
 }
 
 
+/**
+ * @brief Splits a string based on delimeter (default space) into a vector
+ *        of strings.
+ * 
+ * @param str The string to split.
+ * @param delim The character to use as a delimeter.
+ * @return `std::vector<std::string> `
+ */
 inline std::vector<std::string> str_split(std::string str, char delim = ' ')
 {
     using std::string;
@@ -111,6 +158,14 @@ inline std::vector<std::string> str_split(std::string str, char delim = ' ')
 }
 
 
+/**
+ * @brief Returns a string representation of the vector. This template
+ *        function uses `+=` to append the element to the string.
+ * 
+ * @tparam ElemT The element within the vector to append to the string.
+ * @param list The input vector.
+ * @return `std::string` that shows the vector like so: `{1, 2, 3}` 
+ */
 template <typename ElemT>
 inline std::string vector_str(std::vector<ElemT> list)
 {
