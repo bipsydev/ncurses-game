@@ -1,0 +1,37 @@
+{
+    "configurations": [
+        {
+            "name": "gdb Debug Project",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/xterm",
+            // CMD args here:
+            "args": [
+                "-geometry", "80x24+470+220",
+                "-bg", "black",
+                "-fg", "white",
+                "-e", "${workspaceFolder}/build/${workspaceFolderBasename}",
+                "name",
+                "1",
+                "5",
+                "1000",
+                "cmd_names.output"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            //"externalConsole": true,
+            "MIMode": "gdb",
+            "miDebuggerPath": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enably pretty printing",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "g++ Build Project"
+        }
+    ],
+    "version": "0.2.0"
+}

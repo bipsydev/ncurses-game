@@ -1,0 +1,57 @@
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "g++ Build Project",
+            "command": "g++",
+            "args": [
+                // Warnings I like to enable
+                "-std=c++17",
+                "-Wall",
+                "-Wextra",
+                "-Wfloat-equal",
+                "-Winline",
+                "-Wunreachable-code",
+                "-Wredundant-decls",
+                "-Wconversion",
+                "-Wwrite-strings",
+                "-Wcast-qual",
+                "-Woverloaded-virtual",
+                "-Weffc++",
+                "-Wparentheses",
+                "-Wshadow",
+                "-Wold-style-cast",
+                "-Wconversion",
+                "-Wunused-parameter",
+                "-pedantic",
+                // some VS Code stuff
+                "-fno-gnu-keywords",
+                "-fdiagnostics-color=always",
+                // Defined Symbols
+                "-D", "TEMPLATE_SEPARATE_COMPILATION",  // for .tcpp files
+                // Libraries to link with
+                "-l", "ncurses",
+                // Directories to add to include path
+                "-I", "./include",
+                // enable GDB debugging symbols
+                "-g",
+                // The SOURCE FILES to compile:
+                "src/*.cpp",
+                // Output file
+                "-o", "build/${workspaceFolderBasename}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Task for use with school."
+        }
+    ],
+    "version": "2.0.0"
+}
