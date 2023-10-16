@@ -4,13 +4,15 @@
             "name": "gdb Debug Project",
             "type": "cppdbg",
             "request": "launch",
+            // use xterm to run the program so we can control variables
             "program": "/usr/bin/xterm",
-            // CMD args here:
             "args": [
+                // XTERM arguments:
                 "-geometry", "80x24+470+220",
                 "-bg", "black",
                 "-fg", "white",
                 "-e", "${workspaceFolder}/build/${workspaceFolderBasename}",
+                // PROGRAM arguments:
                 "name",
                 "1",
                 "5",
