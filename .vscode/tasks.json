@@ -38,7 +38,7 @@
                 // The SOURCE FILES to compile:
                 "src/*.cpp",
                 // Output file
-                "-o", "build/${workspaceFolderBasename}"
+                "-o", "${workspaceFolder}/build/${workspaceFolderBasename}"
             ],
             "options": {
                 "cwd": "${workspaceFolder}"
