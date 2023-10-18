@@ -30,7 +30,7 @@
                 // Defined Symbols
                 "-D", "TEMPLATE_SEPARATE_COMPILATION",  // for .tcpp files
                 // Libraries to link with
-                "-l", "ncurses",
+                "-l", "ncursesw",
                 // Directories to add to include path
                 "-I", "./include",
                 // enable GDB debugging symbols
