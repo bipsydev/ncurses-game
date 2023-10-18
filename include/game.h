@@ -9,7 +9,7 @@ class Game
 {
 public:
     Game();
-    void run();
+    int run();
     ~Game();
 };
 
